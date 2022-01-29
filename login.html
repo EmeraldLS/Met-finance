@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MET Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mdb.min.css">
+    <link rel="icon" href="./images/title.svg">
+
+    <style>
+
+        *,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+}
+
+body {
+  background-color: #f3f4f6 !important;
+}
+
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.s-btn{
+    background-color: #04805c;
+    color: #f3f4f6;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+
+
+
+
+
+.fgt-pass, .r-lbl{
+    color: #04805c;
+    font-weight: bold;
+}
+
+.fgt-pass:hover{
+    color: #04805c;
+    text-decoration: none;
+}
+
+.top-line {
+  height: 3px;
+  width: 100%;
+  background-color: #04805c;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+  font-size: 25px !important;
+}
+
+.nav-link {
+  font-weight: bold;
+}
+
+.top-line {
+  height: 3px;
+  width: 100%;
+  background-color: #04805c;
+}
+
+.pass-img{
+    border: 0;
+    height: 30rem;
+    width: 40rem;
+    transition: all 0.4s;
+}
+
+
+.form-label{
+    font-weight: bold;
+}
+
+
+        .form-outline .form-control:focus~.form-notch .form-notch-leading {
+    border-top: .125rem solid #04805c;
+    border-bottom: .125rem solid #04805c;
+    border-left: .125rem solid #04805c;
+}
+ .form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-bottom: .125rem solid;
+    border-color: #04805c;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+    border-color: currentcolor currentcolor currentcolor #04805c;
+    border-bottom: .125rem solid #04805c;
+    border-right: .125rem solid #04805c;
+    border-top: .125rem solid #04805c;
+}
+
+.form-outline .form-control:focus~.form-label {
+    color: #04805c;
+}
+    </style>
+</head>
+<body>
+
+
+    
+
+<div class="top-line"></div>
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-light bg-light secondary-color lighten-1 px-5">
+    <a class="navbar-brand" href="index.html">MET</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-3">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="signup.html">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--/.Navbar -->
+
+
+
+    <div class="container-fluid">
+        <div class="home-content px-4">
+            <div class="first-column">
+                <img src="./images/auth.svg" alt="" class="img-fluid pass-img">
+                
+            </div>
+            <div class="second-column">
+                <form>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="form1Example1" class="form-control" />
+                        <label class="form-label" for="form1Example1">Email address</label>
+                    </div>
+                
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="form1Example2" class="form-control" />
+                        <label class="form-label" for="form1Example2">Password</label>
+                    </div>
+                
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                                <label class="form-check-label r-lbl" for="form1Example3"> Remember me </label>
+                            </div>
+                        </div>
+                
+                        <div class="col">
+                            <a href="#!" class="fgt-pass">Forgot password?</a>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="s-btn btn-block">Sign in</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/mdb.min.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
