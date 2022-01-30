@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mdb.min.css">
+    <link rel="icon" href="./images/title.svg">
+    <title>MET - Upload Image</title>
+
+
+    <style>
+        *,
+        *::before,
+        *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Dosis", sans-serif;
+        }
+        
+
+        #image_uploader{
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px 20px;
+        }
+        form{
+            height: 150px;
+            width: 375px;
+            border: 3px dashed #04805c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        #image_input{
+            visibility: hidden;
+        }
+        #image_output{
+            height: 35rem;
+            width: 375px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e71414;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            
+        }
+        #image_output.show{
+            animation-name: anim1;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-direction: alternate;
+            animation-play-state: running;
+            animation-iteration-count: 1;
+            opacity: 0;
+        }
+        @keyframes anim1 {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+        #profile_image.show{
+            height: 150px;
+            width: 150px;
+        }
+
+        .top-line {
+        height: 3px;
+        width: 100%;
+        background-color: #04805c;
+        }
+
+        .navbar-brand {
+        font-weight: bolder;
+        font-size: 25px !important;
+        }
+
+        .nav-link {
+        font-weight: bold;
+        }
+
+        .confirm{
+            margin: 10px;
+            border: 2px solid #04805c;
+            border-top-color: transparent;
+            margin-top: -5px;
+        }
+        .confirm h3{
+            padding-top: 5px;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .confirm p{
+            text-align: center;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+
+        @media(max-width:996px){
+            body{
+            margin-bottom: 10px;
+        }
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="top-line"></div>
+        <!--Navbar -->
+        <nav class="mb-1 navbar navbar-expand-lg navbar-light bg-light secondary-color lighten-1 px-5">
+            <a class="navbar-brand" href="index.html">MET</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+                aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mr-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">Register</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </nav>
+        <!--/.Navbar -->
+
+<div class="confirm">
+    <h3>Upload Image</h3>
+    <p>For we to proceed with your regsitration, we need to confirm your identity. The page automatically reload to your homepage if confirmed</p>
+</div>
+
+
+    <div id="image_uploader">
+        <form action="">
+            <i class="fas fa-upload  fa-3x" style="color: #04805c;">
+            </i>
+        </form>
+        <input type="file" name="image_input" id="image_input" accept="image/jpeg">
+
+        <div id="image_output">
+            <h3 id="no_image" > No Image Selected</h3>
+        </div>
+    </div>
+    
+    
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/mdb.min.js"></script>
+    <script src="./js/all.min.js"></script>
+
+    <script>
+
+        
+
+        var form = document.querySelector("form")
+        var image_input = document.querySelector("#image_input")
+        var image_output = document.querySelector("#image_output")
+        var profile_img = document.querySelector("#profile_image")
+        var uploadedImg = ''
+        form.onclick = function(){
+            image_input.click()
+        }
+
+        function showImg(){
+                image_input.addEventListener("change", function(){
+                    if(image_input){
+                        const reader = new FileReader();
+                        reader.addEventListener("load", function () {
+                            uploadedImg = reader.result
+                            document.querySelector("#no_image").style.display = "none"
+                            image_output.style.backgroundImage = `url(${uploadedImg})`
+                            image_output.classList.add("show")
+                        })
+                        reader.readAsDataURL(this.files[0])
+                        setTimeout(function(){
+                            window.location = "index.html"
+                        }, 3000)
+                    }
+                
+            })
+        }
+        showImg()
+
+    </script>
+</body>
+</html>
